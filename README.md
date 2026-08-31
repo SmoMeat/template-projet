@@ -1,99 +1,200 @@
-# Template de site web pour IFT3150 (Projet informatique)
+# Template de site web pour IFT3150 — Projet informatique
 
-Ce répertoire contient un template de site web de projet pour le cours IFT3150, construit avec [MkDocs](https://www.mkdocs.org/) et le thème [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+Ce répertoire contient un **template de site web de projet pour le cours IFT3150**, construit avec **Zensical**.
 
-Ce site sert à :
+Le site accompagne le projet tout au long de la session. Il sert notamment à :
 
-- documenter le projet tout au long de la session,
-- structurer les livrables (description, suivi, résumé, rapport),
-- centraliser le travail de l’équipe dans un format clair et accessible.
+* présenter le projet et ses objectifs ;
+* documenter son évolution et le travail réalisé ;
+* synthétiser les études, réalisations et résultats obtenus ;
+* conserver les principales références et ressources utilisées ;
+* centraliser la documentation de l'équipe dans un format clair et accessible.
 
 ## Prérequis
 
-Assurez-vous d’avoir les outils suivants installés :
+Assurez-vous d'avoir les outils suivants installés :
 
-- Python **3.11** ou plus récent
-- `pip` (gestionnaire de paquets Python)
+* Python **3.11** ou plus récent ;
+* `pip`, le gestionnaire de paquets Python ;
+* Git, pour cloner et versionner le projet.
 
 ## Installation
 
-1. Clonez ce dépôt (optionnel) :
+### 1. Récupérer le template
+
+Clonez le dépôt :
+
 ```bash
 git clone git@github.com:udem-diro/template-projet.git
 ```
 
-2. Installez les dépendances (dans votre répertoire) :
+Puis placez-vous dans le répertoire du projet :
+
+```bash
+cd template-projet
+```
+
+Vous pouvez ensuite renommer le dossier ou associer le projet à votre propre dépôt Git.
+
+### 2. Installer les dépendances
+
+Installez les dépendances du projet :
+
 ```bash
 pip install -r requirements.txt
 ```
+
+Cette commande installe notamment **Zensical**, utilisé pour construire et prévisualiser le site.
 
 ## Utilisation
 
 Vous devez au minimum :
 
-1. Modifier les pages (fichiers) Markdown dans le dossier `docs/`
-2. Compléter les sections prévues (ex: description, suivi, résumé, rapport)
-3. Adapter le contenu à votre projet
+1. modifier les pages Markdown dans le dossier `docs/` ;
+2. adapter la présentation et la description du projet ;
+3. maintenir le suivi du travail réalisé durant la session ;
+4. compléter progressivement la synthèse et les références.
 
-### Travailler en local (sur votre poste)
+Le contenu fourni dans le template sert de **structure de départ**. Adaptez-le à la nature de votre projet.
 
-Pour lancer un serveur local avec rechargement automatique :
+### Travailler en local
+
+Pour lancer le site sur votre poste :
 
 ```bash
-mkdocs serve --livereload
+zensical serve
 ```
 
-Le site sera accessible à l'adresse [http://127.0.0.1:8000](http://127.0.0.1:8000).
+Le site sera accessible à l'adresse :
 
-> Après chaque modification de fichiers dans `/docs`, le site local est automatiquement mis à jour.
+```text
+http://localhost:8000
+```
 
-### Construction du site (optionnel)
+Les modifications apportées aux fichiers du dossier `docs/` sont automatiquement prises en compte lors du développement.
+
+Vous pouvez également demander à Zensical d'ouvrir automatiquement le site dans votre navigateur :
+
+```bash
+zensical serve --open
+```
+
+## Construction du site
 
 Pour générer la version statique du site :
 
 ```bash
-mkdocs build
+zensical build
 ```
 
-Les fichiers générés seront placés dans le dossier `site/`.
+Les fichiers générés sont placés par défaut dans le dossier `site/`.
 
-### Déployer ou mettre à jour le site (public)
-
-Pour déployer le site sur GitHub Pages :
+Pour reconstruire complètement le site en supprimant les données de construction précédentes :
 
 ```bash
-mkdocs gh-deploy
+zensical build --clean
 ```
 
-> Cette commande pousse automatiquement le contenu du site sur la branche `gh-pages`.
+> Cette étape n'est généralement pas nécessaire lorsque vous travaillez avec `zensical serve`, mais elle peut être utile pour vérifier la version finale du site.
+
+## Déploiement sur GitHub Pages
+
+Le template utilise **GitHub Actions** pour construire et publier automatiquement le site sur GitHub Pages.
+
+Le workflow de déploiement se trouve dans :
+
+```text
+.github/workflows/docs.yml
+```
+
+Une fois GitHub Pages configuré pour utiliser **GitHub Actions**, le déploiement se fait automatiquement lorsque des modifications sont envoyées vers la branche principale du dépôt.
+
+Votre workflow habituel devient donc simplement :
+
+```bash
+git add .
+git commit -m "Mise à jour du projet"
+git push
+```
+
+GitHub se charge ensuite de construire et de publier le site.
 
 ## Structure du projet
 
-```sh
+```text
 .
-├── docs/                # Contenu du site (Markdown)
-│   ├── index.md         # Vue d’ensemble du projet
-│   ├── suivi.md         # Suivi détaillé (hebdo / bi-hebdo)
-│   ├── analyse.md       # Analyses, recherches et explorations
-│   ├── realisation.md   # Réalisation (conception + implementation)
-│   └── evaluation.md    # Validation, résultats et analyse critique
-├── mkdocs.yml           # Configuration du site et navigation
-├── requirements.txt     # Dépendances Python
-└── site/                # Site généré (créé lors de la construction)
+├── .github/
+│   └── workflows/
+│       └── docs.yml          # Construction et déploiement GitHub Pages
+│
+├── docs/
+│   ├── index.md              # Présentation et vue d'ensemble du projet
+│   ├── suivi.md              # Suivi périodique du travail
+│   ├── synthese.md           # Synthèse des travaux et résultats
+│   └── references.md         # Références, ressources et utilisation de l'IA
+│
+├── zensical.toml             # Configuration du site et de la navigation
+├── requirements.txt          # Dépendances Python
+└── site/                     # Site généré lors de la construction
 ```
 
-> Tout le contenu du projet se trouve dans `docs/`.
+> L'essentiel du contenu que vous aurez à modifier se trouve dans le dossier `docs/`.
+
+## Pages du site
+
+### `index.md` — Présentation du projet
+
+Présente le contexte, le problème abordé, les objectifs du projet, l'équipe ainsi que les principales informations permettant de comprendre le mandat.
+
+### `suivi.md` — Suivi
+
+Documente périodiquement l'évolution du projet, le travail réalisé, les difficultés rencontrées et les prochaines étapes.
+
+Cette page doit être mise à jour **tout au long de la session**.
+
+### `synthese.md` — Synthèse
+
+Présente une vue d'ensemble du travail accompli autour de quatre phases :
+
+1. **Études préliminaires**
+2. **Réalisation**
+3. **Évaluation**
+4. **Bilan**
+
+La structure est volontairement générale afin de pouvoir être adaptée aux différents types de projets.
+
+### `references.md` — Références
+
+Rassemble les principales sources et ressources ayant contribué au projet.
+
+Pour chaque référence importante, précisez brièvement **comment elle a été utilisée ou en quoi elle a influencé le travail réalisé**.
+
+Cette page permet également de documenter l'utilisation d'outils d'**intelligence artificielle** dans le cadre du projet.
 
 ## Personnalisation
 
-1. Modifiez `mkdocs.yml` pour changer la configuration du site
-2. Ajoutez/modifiez les fichiers Markdown (`.md`) dans `docs/`
-3. Personnalisez le thème en modifiant les paramètres dans `mkdocs.yml`
+La configuration principale du site se trouve dans :
+
+```text
+zensical.toml
+```
+
+Vous pouvez notamment y modifier :
+
+* le nom du site ;
+* la navigation ;
+* l'adresse du site publié ;
+* le dépôt Git associé ;
+* les fonctionnalités du thème.
+
+Le contenu des pages se trouve dans `docs/` et est rédigé en Markdown.
+
+Vous pouvez ajouter des pages ou réorganiser la navigation lorsque cela est pertinent pour votre projet.
 
 ## Licence
 
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+Ce template est distribué sous licence MIT. Consultez le fichier `LICENSE` pour plus de détails.
 
-## 🙋‍♀️ Questions ou problèmes ?
+## Questions ou problèmes ?
 
-En cas de problème, n'hésitez pas à ouvrir une issue sur GitHub ou à poser des questions au coordonnateur du cours.
+En cas de problème avec le template ou son utilisation, vous pouvez ouvrir une issue sur le dépôt GitHub ou communiquer avec le coordonnateur du cours.

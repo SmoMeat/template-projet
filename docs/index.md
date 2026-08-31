@@ -45,11 +45,6 @@ title: Vue d'ensemble du projet
 
 > Indiquez comment vous évaluerez que votre solution répond aux objectifs du projet (ex. scénarios d’usage, tests, retours utilisateurs, indicateurs qualitatifs ou quantitatifs).
 
-
-## Équipe
-
-> Présentez les membres de l’équipe et le rôle principal de chacun dans le projet.
-
 ## Échéancier
 
 !!! info
