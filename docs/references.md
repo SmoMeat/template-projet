@@ -56,6 +56,10 @@ title: Travail réalisé
 >
 > Cette documentation a été utilisée comme référence principale pour comprendre le fonctionnement des API Web exploitées dans l'application et valider certains choix d'implémentation.
 
+> **Arima Genomics** *Bioinformatics for the 3D Genome: An Introduction to Analyzing and Interpreting Hi-C Data*
+> https://www.youtube.com/watch?v=0787ciSyrT8
+>
+
 > **Nom de l'auteur.** *Titre de l'article*. Nom de la publication, année.
 >
 > Cet article a permis de comparer différentes approches au problème étudié et a contribué au choix de la méthode retenue dans le projet.

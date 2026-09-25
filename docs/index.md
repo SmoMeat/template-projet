@@ -13,11 +13,10 @@ title: Vue d'ensemble du projet
 # Vue d'ensemble du projet
 
 !!! info "Informations générales"
-    **Session**: Été 2026  
-    **Auteur(s)**: <!-- Nom de chaque membre (matricule)  -->  
-    **Thème(s)**: <!-- Thèmes principaux abordés dans le projet  -->  
-    **Superviseur(s)**: <!-- Nom du superviseur (affiliation)  -->  
-    **Collaborateur(s):** <!-- Nom de(s) collaborateur(s) et partenaire(s)` -->  
+    **Session**: Automne 2026  
+    **Auteur(s)**: Mathieu Ducharme (20297456)  
+    **Thème(s)**: Bio-informatique  
+    **Superviseur(s)**: Carino Gurjao
 
 ## Description du projet
 
